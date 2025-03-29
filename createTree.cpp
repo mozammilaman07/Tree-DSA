@@ -16,8 +16,28 @@ public:
     }
 };
 
+Node *createTree()
+{
+    cout << "enter the value for node: " << endl;
+    int data;
+    cin >> data;
+
+    if (data == -1)
+    {
+        return NULL;
+    }
+
+    Node *root = new Node(data);
+
+    root->left = createTree();
+
+    root->right = createTree();
+    return root;
+}
+
 int main()
 {
+    Node *root = createTree();
 
     return 0;
 }
