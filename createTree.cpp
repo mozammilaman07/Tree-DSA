@@ -47,9 +47,45 @@ void preOrderTraversal(Node *root)
     preOrderTraversal(root->right);
 };
 
+void inorderTraversal(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    // LNR
+    inorderTraversal(root->left);
+    cout << root->data << " ";
+    inorderTraversal(root->right);
+}
+
+void postOrderTraversal(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    // LRN
+    postOrderTraversal(root->left);
+    postOrderTraversal(root->right);
+    cout << root->data << " ";
+}
+
 int main()
 {
     Node *root = createTree();
+
+    cout << "Printing preOder: ";
+    preOrderTraversal(root);
+    cout << endl;
+
+    cout << "Printing inorder: ";
+    inorderTraversal(root);
+    cout << endl;
+
+    cout << "Printing postOrder: ";
+    postOrderTraversal(root);
+    cout << endl;
 
     return 0;
 }
