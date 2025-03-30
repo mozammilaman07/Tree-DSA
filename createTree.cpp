@@ -35,6 +35,18 @@ Node *createTree()
     return root;
 }
 
+void preOrderTraversal(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    // NLR
+    cout << root->data << " ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
+};
+
 int main()
 {
     Node *root = createTree();
